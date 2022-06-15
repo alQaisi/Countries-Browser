@@ -8,7 +8,7 @@ function Country(props){
     const {flag,name,population,region,capital,alpha3Code}=props;
     return(
         <div  className={"Country "+theme+"-Country"}>
-            <Link className='countryLink' to={`/${alpha3Code}`}>
+            <Link className='countryLink' to={`/Countries-Browser/${alpha3Code}`}>
                 <img data-alpha2code={alpha3Code} className='countr-item-image' src={flag} alt={name}/>
                 <div className="infoContainer">
                     <p className="countryName">{name}</p>

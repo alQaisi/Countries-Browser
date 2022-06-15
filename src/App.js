@@ -5,8 +5,8 @@ import CountryPage from './routes/countryPage/countryPage.component.jsx';
 function App() {
   return (
     <Routes>
-      <Route path='/' element={<Home/>}/>
-      <Route path=':countryCode' element={<CountryPage/>}/>
+      <Route path='/Countries-Browser' element={<Home/>}/>
+      <Route path='Countries-Browser/:countryCode' element={<CountryPage/>}/>
     </Routes>
   );
 }
