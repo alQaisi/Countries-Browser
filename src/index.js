@@ -11,7 +11,7 @@ import reportWebVitals from './reportWebVitals';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   // <React.StrictMode>
-  <BrowserRouter basename="/Countries-Browser">
+  <HashRouter>
     <ThemeProvider>
       <FilterProvider>
         <CountriesProvider>
@@ -19,7 +19,7 @@ root.render(
         </CountriesProvider>
       </FilterProvider>
     </ThemeProvider>
-  </BrowserRouter>
+  </HashRouter>
   // </React.StrictMode>
 );
 
