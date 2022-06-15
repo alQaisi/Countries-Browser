@@ -46,7 +46,7 @@ function CountryPage(){
     let buttons=[<p key={-1}>Border Countries</p>];
     borders.forEach((border,index)=>{
         buttons.push(
-            <Link key={index} to={"/Countries-Browser/"+border.alpa3code}><button>{border.name}</button></Link>
+            <Link key={index} to={"/"+border.alpa3code}><button>{border.name}</button></Link>
         )
     })
         
@@ -61,7 +61,7 @@ function CountryPage(){
                         <BsArrowLeft className="back-icon"/>
                         <button className="back-button">Back</button>
                     </div>
-                    <div className={"button-container "+theme+"-button-container"} onClick={()=>navigate("/Countries-Browser")}>
+                    <div className={"button-container "+theme+"-button-container"} onClick={()=>navigate("/")}>
                         <BiHome className="home-icon"/>
                         <button className="home-button">Home</button>
                     </div>
