@@ -8,7 +8,7 @@ import { CountriesProvider } from './context/countries.context';
 import './index.css';
 import App from './App';
 // import reportWebVitals from './reportWebVitals';
-import * as serviceWorker from './service-worker';
+import * as serviceWorker from './serviceWorkerRegistration';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
