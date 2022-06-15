@@ -23,12 +23,11 @@ function CountryPage(){
     }
 
     useEffect(function fetchCountry(){
-        const countryName=alpa3codes[countryCode.toUpperCase()];
-        fetch(`https://restcountries.com/v2/name/${countryName}`)
+        fetch(`https://restcountries.com/v2/alpha/${countryCode.toUpperCase()}`)
         .then(res=>res.json())
         .then(data=>{
-            setCountry(data[0]);
-            document.title = data[0].name;
+            setCountry(data);
+            document.title = data.name;
         }).catch(err=>{
             console.log(err);
             setIsError(true);
