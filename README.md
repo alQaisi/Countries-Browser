@@ -12,7 +12,7 @@ This new solution has a routes using react-router, you may notice that there is 
 
 I did not replace the old repository with this one because I want something that reminds me of how I was and how I became.
 
-# I hope you find this project usefull, you can contact me if you have some questions :)
+# I hope you find this project useful, you can contact me if you have some questions :)
 
 
 
