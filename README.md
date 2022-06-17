@@ -2,7 +2,7 @@
 
 This project was built using React with many different tools as React-router,Hooks,context-api.
 
-The idea behind this project is a challenge in [frontend mentor](https://frontendmentor.io/challenges/rest-countries-api-with-color-theme-switcher-5cacc469fec04111f7b848ca)
+The idea behind this project is a challenge in [Frontend Mentor](https://frontendmentor.io/challenges/rest-countries-api-with-color-theme-switcher-5cacc469fec04111f7b848ca)
 
 I finished the challenge 2 years ago, but I was a newbie that time and i I had not a lot of experince in react or javascript.
 
