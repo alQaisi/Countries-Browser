@@ -10,7 +10,7 @@ My previous solution was just one page, you can enter any country but it's just 
 
 This new solution has a routes using react-router, you may notice that there is a # in the route when you click on a country, That because github pages has some issues with react router so I wrapped my App component with HashRouter insted of BrowserRouter.
 
-I did not replace the old repository with this one because I want something the reminds me of how I was and how I became.
+I did not replace the old repository with this one because I want something that reminds me of how I was and how I became.
 
 # I hope you find this project usefull, you can contact me if you have some questions :)
 
