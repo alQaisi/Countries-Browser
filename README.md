@@ -1,11 +1,11 @@
 # Countries Browser Web Application
 
-This project was built using React with many different tools as React-router,Hooks,context-api 
-The idea behind this project is a challenge in [https://www.frontendmentor.io/challenges/rest-countries-api-with-color-theme-switcher-5cacc469fec04111f7b848ca](Frontend Mentor)
-I finished the challenge 2 years ago, but I was a newbie that time and i I had not a lot of experince in react or javascript.
-My previous solution was just one page, you can enter any country but it's just a new component that appears on top of another component.
-This new solution has a routes using react-router, you may notice that there is a # in the route when you click on a country, That because github pages has some issues with react router so I wrapped my App component with HashRouter insted of BrowserRouter.
-I did not replace the old repository with this one because I want something the reminds me of how I was and how I became.
+This project was built using React with many different tools as React-router,Hooks,context-api.\
+The idea behind this project is a challenge in [https://www.frontendmentor.io/challenges/rest-countries-api-with-color-theme-switcher-5cacc469fec04111f7b848ca](Frontend Mentor).\
+I finished the challenge 2 years ago, but I was a newbie that time and i I had not a lot of experince in react or javascript.\
+My previous solution was just one page, you can enter any country but it's just a new component that appears on top of another component.\
+This new solution has a routes using react-router, you may notice that there is a # in the route when you click on a country, That because github pages has some issues with react router so I wrapped my App component with HashRouter insted of BrowserRouter.\
+I did not replace the old repository with this one because I want something the reminds me of how I was and how I became.\
 
 # I hope you find this project usefull, you can contact me if you have some questions :)
 
