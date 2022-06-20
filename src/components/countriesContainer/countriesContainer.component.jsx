@@ -3,7 +3,7 @@ import {CountriesContext} from '../../context/countries.context';
 import {FilterContext} from '../../context/filter.context';
 import Country from '../country/country.component';
 import Loader from '../Loader/loader.component';
-import './countriesContainer.styles.scss';
+import {CountriesContainerElem,Warning} from './countriesContainer.styles.jsx';
 
 function CountriesContainer(){
     const {countries,isError}=useContext(CountriesContext);
@@ -15,10 +15,10 @@ function CountriesContainer(){
     ));
     const containerClass=isError?'Error':"";
     return(
-        <div className={"CountriesContainer "+containerClass}>
+        <CountriesContainerElem isError={isError}>
             {
                 isError?
-                <h1 className='warning'>Pleas Try Again Later!</h1>
+                <Warning>Pleas Try Again Later!</Warning>
                 :(
                     items.length>0?
                     items
@@ -26,7 +26,7 @@ function CountriesContainer(){
                 )
                 
             }
-        </div>
+        </CountriesContainerElem>
     );
 }
 export default CountriesContainer;

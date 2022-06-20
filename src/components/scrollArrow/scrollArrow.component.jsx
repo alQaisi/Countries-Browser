@@ -1,17 +1,16 @@
 import {useState,useContext} from 'react';
 import { ThemeContext } from '../../context/theme.context';
-import {IoIosArrowDropupCircle} from 'react-icons/io';
-import './scrollArrow.styles.scss';
+import {ScrollToTop} from './scrollArrow.styles';
 
 function ScrollArrow(){
-    const [showScroll,setShowScroll]=useState(false);
+    const [showScroll,setShowScroll]=useState("false");
     const {theme}=useContext(ThemeContext);
     
     function checkScrollTop(){
-        if(!showScroll && window.pageYOffset>400){
-            setShowScroll(true);
+        if(showScroll==="false" && window.pageYOffset>400){
+            setShowScroll("true");
         }else if(showScroll && window.pageYOffset<=400){
-            setShowScroll(false);
+            setShowScroll("false");
         }
     }
     function scrollTop(){
@@ -19,7 +18,7 @@ function ScrollArrow(){
     }
     window.addEventListener('scroll',checkScrollTop);
     return(
-        <IoIosArrowDropupCircle className={`scrollTop ${theme}-arrow`} onClick={scrollTop} style={{display: showScroll ? 'block' : 'none'}}/>
+        <ScrollToTop  dark={theme} showscroll={showScroll} onClick={scrollTop} />
     );
 }
 export default ScrollArrow;

@@ -1,4 +1,8 @@
-.scrollTop {
+import styled from "styled-components";
+import {IoIosArrowDropupCircle} from 'react-icons/io';
+
+
+export const ScrollToTop=styled(IoIosArrowDropupCircle)`
     position: fixed; 
     bottom: 20px;
     right:20px;
@@ -9,10 +13,6 @@
     transition: opacity 0.4s;
     opacity: 0.75;
     color:hsl(207, 26%, 17%);
-
-    &.dark-arrow{
-        color:hsl(0, 0%, 100%);
-    }
     &:hover{
         opacity: 1;
     }
@@ -24,4 +24,6 @@
           opacity: 0.5;
         }
     }
-}
+    ${({dark})=>dark==="dark" && `color:hsl(0, 0%, 100%);`};
+    ${({showscroll})=>showscroll==="true"?`display:block;`:`display:none;`};
+`;

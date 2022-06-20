@@ -1,15 +1,16 @@
 import { useContext } from "react";
 import { ThemeContext } from "../../context/theme.context";
 import HeaderButton from './headerButton/headerButton.component';
-import './header.styles.scss';
+import {HeaderContainer,HeaderTitle} from './header.styles';
+// import './header.styles.scss';
 
 function Header(){
     const {theme}=useContext(ThemeContext);
     return(
-        <header className={"headerContainer "+theme}>
-            <p className="title">Where in the world?</p>
-            <HeaderButton colorMode="normal"/>
-        </header>
+        <HeaderContainer dark={theme}>
+            <HeaderTitle>Where in the world?</HeaderTitle>
+            <HeaderButton />
+        </HeaderContainer>
     )
 }
 export default Header;

@@ -1,18 +1,19 @@
 import { useContext } from "react";
 import { ThemeContext } from "../../../context/theme.context";
 import { RiMoonLine,RiMoonFill} from "react-icons/ri";
+import {ButtonContainer,Button,ButtonDark} from '../header.styles';
 
 function HeaderButton(){
     const {theme,changeTheme}=useContext(ThemeContext);
     return(
-        <div className="buttonContainer" onClick={changeTheme}>
+        <ButtonContainer onClick={changeTheme}>
             {
                 theme==='dark'
-                ?<button aria-label="dark moode button" className="darkmode-button darkButton"><RiMoonFill/></button>
-                :<button aria-label="dark moode button" className="darkmode-button"><RiMoonLine/></button>
+                ?<ButtonDark aria-label="dark moode button"><RiMoonFill/></ButtonDark>
+                :<Button aria-label="dark moode button" ><RiMoonLine/></Button>
             }
             <p>Dark Mode</p>
-        </div>
+        </ButtonContainer>
     )
 }
 export default HeaderButton;

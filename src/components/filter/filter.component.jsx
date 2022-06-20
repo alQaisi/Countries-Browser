@@ -1,13 +1,13 @@
 import SearchBox from './searchbox/searchbox.component';
 import RegionSelector from './regionSelector/regionSelector.component';
-import './filter.styles.scss';
+import {FilterContainer} from './filter.styles';
 
 function Filter(){
     return(
-        <div className='FilterContainer'>
+        <FilterContainer>
             <SearchBox/>
             <RegionSelector/>
-        </div>
+        </FilterContainer>
     );
 }
 export default Filter;
