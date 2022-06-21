@@ -8,7 +8,7 @@ function RegionSelector(){
     const {theme}=useContext(ThemeContext);
     const {region,changeRegion}=useContext(FilterContext);
     return(
-        <SelectRegion dark={theme} value={region} onChange={changeRegion}>
+        <SelectRegion aria-label="Select Region" dark={theme} value={region} onChange={changeRegion}>
             <option value="">Filter by Region</option>
             <option value="Africa">Africa</option>
             <option value="Americas">Americas</option>
