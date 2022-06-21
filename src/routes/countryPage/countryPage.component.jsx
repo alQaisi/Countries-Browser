@@ -2,11 +2,16 @@ import { useContext,useState,useEffect,Fragment } from 'react';
 import { useParams,useNavigate } from 'react-router';
 import { Link } from 'react-router-dom';
 import { ThemeContext } from '../../context/theme.context';
-import {BsArrowLeft} from 'react-icons/bs';
-import {BiHome} from 'react-icons/bi';
 import alpa3codes from '../../assets/alpha3codes.json';
 import Loader from '../../components/Loader/loader.component';
-import './countryPage.styles.scss';
+
+import {
+    HomeIcon,BackIcon,HeaderButton,ButtonContainer,
+    Warning,
+    BorderButton,BorderButtonContainer,
+    CountryCont,Info1,Info2,
+    CountryPageContainer
+} from './countryPage.styles';
 
 function CountryPage(){
     
@@ -45,40 +50,40 @@ function CountryPage(){
     let buttons=[<p key={-1}>Border Countries</p>];
     borders.forEach((border,index)=>{
         buttons.push(
-            <Link key={index} to={"/"+border.alpa3code}><button>{border.name}</button></Link>
+            <Link key={index} to={"/"+border.alpa3code}><BorderButton>{border.name}</BorderButton></Link>
         )
     })
         
     return(
-        <div className={" CountryPage "+ theme+"-CountryPage "}>
+        <CountryPageContainer dark={theme}>
             {
                 !isError
                 ?(
                     country.name
                 ?(<Fragment>
-                    <div className={"button-container "+theme+"-button-container"} onClick={()=>navigate(-1)}>
-                        <BsArrowLeft className="back-icon"/>
-                        <button className="back-button">Back</button>
-                    </div>
-                    <div className={"button-container "+theme+"-button-container"} onClick={()=>navigate("/")}>
-                        <BiHome className="home-icon"/>
-                        <button className="home-button">Home</button>
-                    </div>
-                    <div className="CountryCont">
+                    <ButtonContainer dark={theme} onClick={()=>navigate(-1)}>
+                        <BackIcon/>
+                        <HeaderButton>Back</HeaderButton>
+                    </ButtonContainer>
+                    <ButtonContainer dark={theme} onClick={()=>navigate("/")}>
+                        <HomeIcon/>
+                        <HeaderButton>Home</HeaderButton>
+                    </ButtonContainer>
+                    <CountryCont>
                         <div className="flag">
                             <img alt={country.name} src={country.flag} />
                         </div>
                         <div className="CountryInfo">
                             <h1>{country.name}</h1>
                             <div className="infoCont">
-                                <div className="info1">
+                                <Info1>
                                     <p>Native Name: <span>{country.nativeName}</span></p>
                                     <p>Population: <span>{country.population}</span></p>
                                     <p>Region: <span>{country.region}</span></p>
                                     <p>Subregion: <span>{country.subregion}</span></p>
                                     <p>Capital: <span>{country.capital}</span></p>
-                                </div>
-                                <div className="info2">
+                                </Info1>
+                                <Info2>
                                     <p>Top Level Domain: <span>{country.topLevelDomain}</span></p>
                                     {
                                         country.currencies!==undefined?
@@ -90,24 +95,24 @@ function CountryPage(){
                                         (<p>Languages: <span>{country.languages.map(language=>language.name+",")}</span></p>)
                                         :<></>
                                     }
-                                </div>
+                                </Info2>
                             </div>
                             {
                                 buttons.length>1?
-                                (<div className={"borderButton "+theme+"-borderButton"}>
+                                (<BorderButtonContainer dark={theme}>
                                     {buttons}
-                                </div>)
+                                </BorderButtonContainer>)
                                 :<></>  
                             }
                         </div>
-                    </div>
+                    </CountryCont>
                 </Fragment>)
-                :<Loader />
+                :<Loader className="loader"/>
                 )
-                :<h1 className='warning'>Pleas Try Again Later!</h1>
+                :<Warning>Pleas Try Again Later!</Warning>
             }
              
-        </div>
+        </CountryPageContainer>
     );
 }
 export default CountryPage;
