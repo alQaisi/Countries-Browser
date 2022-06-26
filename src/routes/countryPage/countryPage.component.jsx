@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import { ThemeContext } from '../../context/theme.context';
 import alpa3codes from '../../assets/alpha3codes.json';
 import Loader from '../../components/Loader/loader.component';
-
 import {
     HomeIcon,BackIcon,HeaderButton,ButtonContainer,
     Warning,
@@ -27,16 +26,24 @@ function CountryPage(){
         navigate("/");
     }
 
-    useEffect(function fetchCountry(){
-        fetch(`https://restcountries.com/v2/alpha/${countryCode.toUpperCase()}`)
-        .then(res=>res.json())
-        .then(data=>{
-            setCountry(data);
-            document.title = data.name;
-        }).catch(err=>{
-            console.log(err);
-            setIsError(true);
-        })
+    useEffect(()=>{
+        const abortController = new AbortController();
+        const fetchData=async()=>{
+            try{
+                const response=await fetch(`https://restcountries.com/v2/alpha/${countryCode.toUpperCase()}`);
+                const country=await response.json();
+                setCountry(country);
+            }catch(err){
+                if (!abortController.signal.aborted){
+                    console.log(err);
+                    setIsError(true);
+                }
+            }
+        }
+        fetchData();
+        return ()=>{
+            abortController.abort();
+        };
     },[countryCode]);
 
     useEffect(function getBorders(){
@@ -46,13 +53,12 @@ function CountryPage(){
         }
     },[country]);
 
-
     let buttons=[<p key={-1}>Border Countries</p>];
     borders.forEach((border,index)=>{
         buttons.push(
             <Link key={index} to={"/"+border.alpa3code}><BorderButton>{border.name}</BorderButton></Link>
         )
-    })
+    });
         
     return(
         <CountryPageContainer dark={theme}>
