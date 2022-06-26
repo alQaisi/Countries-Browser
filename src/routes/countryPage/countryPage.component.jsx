@@ -35,7 +35,6 @@ function CountryPage(){
                 setCountry(country);
             }catch(err){
                 if (!abortController.signal.aborted){
-                    console.log(err);
                     setIsError(true);
                 }
             }
