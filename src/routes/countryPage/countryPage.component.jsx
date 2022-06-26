@@ -27,6 +27,7 @@ function CountryPage(){
     }
 
     useEffect(()=>{
+        console.log(borders);
         const abortController = new AbortController();
         const fetchData=async()=>{
             try{
@@ -50,6 +51,8 @@ function CountryPage(){
         if(country.borders){
         const countryBorders=country.borders.map(border=>({name:alpa3codes[border],alpa3code:border}));
         setBorders(countryBorders);
+        }else{
+            setBorders([]);
         }
     },[country]);
 
