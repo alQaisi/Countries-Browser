@@ -11,13 +11,23 @@ export function CountriesProvider({children}){
     const [countries,setCountries]=useState([]);
     const [isError,setIsError]=useState(false);
 
-    useEffect(function fetchCountries(){
-        fetch("https://restcountries.com/v2/all")
-        .then(response=>response.json())
-        .then(APIdata=>setCountries(APIdata))
-        .catch(err=>{
-            setIsError(true);
-        })
+    useEffect(()=>{
+        const abortController=new AbortController();
+        const fetchData=async()=>{
+            try{
+                const response=await fetch("https://restcountries.com/v2/all");
+                const countries=await response.json();
+                setCountries(countries);
+            }catch(err){
+                if(!abortController.signal.aborted){
+                    setIsError(true);
+                }
+            }
+        }
+        fetchData();
+        return ()=>{
+            abortController.abort();
+        }
     },[]);
     
     const value={countries,isError};
