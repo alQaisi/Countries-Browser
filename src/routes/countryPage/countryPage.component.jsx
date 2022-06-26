@@ -27,7 +27,6 @@ function CountryPage(){
     }
 
     useEffect(()=>{
-        console.log(borders);
         const abortController = new AbortController();
         const fetchData=async()=>{
             try{
