@@ -13,7 +13,6 @@ function CountriesContainer(){
     )).map(country=>(
         <Country key={country.alpha2Code} {...country}/>
     ));
-    const containerClass=isError?'Error':"";
     return(
         <CountriesContainerElem isError={isError}>
             {
