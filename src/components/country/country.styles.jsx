@@ -6,10 +6,6 @@ const darkStyles=css`
     background:hsl(209, 23%, 22%);
 `;
 
-export const CountryLink=styled(Link)`
-    all:unset;
-`;
-
 export const CountryImage=styled.img`
     width:340px;
     height:auto; 
@@ -29,7 +25,8 @@ export const InfoContainer=styled.div`
         font-weight:600;
     }
 `;
-export const CountryItem=styled.div`
+export const CountryItem=styled(Link)`
+    all:unset;
     margin:40px 50px;
     display: inline-block;
     -webkit-box-shadow: 1px 1px 7px 2px rgba(214,214,214,1);
