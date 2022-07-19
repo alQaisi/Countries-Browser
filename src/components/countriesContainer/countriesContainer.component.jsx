@@ -8,7 +8,7 @@ import {CountriesContainerElem,Warning} from './countriesContainer.styles.jsx';
 function CountriesContainer(){
     const {countries,isError}=useContext(CountriesContext);
     const {region,searchText}=useContext(FilterContext);
-    const items=countries.filter(country=>(
+    const items=Object.values(countries).filter(country=>(
         country.region.includes(region)&&country.name.toLowerCase().includes(searchText)
     )).map(country=>(
         <Country key={country.alpha2Code} {...country}/>
