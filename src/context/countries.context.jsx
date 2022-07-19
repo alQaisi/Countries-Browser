@@ -19,7 +19,6 @@ export function CountriesProvider({children}){
                 const data=await response.json();
                 const countriesData={};
                 data.forEach(country=>countriesData[country.alpha3Code]=country)
-                console.log(countriesData);
                 setCountries(countriesData);
             }catch(err){
                 if(!abortController.signal.aborted){
