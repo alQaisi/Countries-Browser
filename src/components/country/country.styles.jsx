@@ -8,7 +8,8 @@ const darkStyles=css`
 
 export const CountryImage=styled.img`
     width:340px;
-    height:auto; 
+    height:200px;
+    object-fit:cover;
     border-top-left-radius:8px;
     border-top-right-radius:8px;    
 `;
@@ -17,7 +18,7 @@ export const InfoContainer=styled.div`
     margin:5px 0 25px 25px;
     & p{
         margin-top:0px;
-        max-width: 200px;
+        max-width:310px;
         word-wrap: break-word;
     }
     & .countryName{
@@ -40,10 +41,19 @@ export const CountryItem=styled(Link)`
         transform: scale(1.1); 
     }
     ${({dark})=>dark==="dark" && darkStyles}
+    @media screen and (max-width:879px){
+        ${CountryImage}{
+            height: auto;
+            object-fit: unset;
+        }
+    }
     @media screen and (max-width:450px){
         margin:40px 15px;
         ${CountryImage}{
             width:235px;
+        }
+        & p{
+            max-width:210px;
         }
     }
 `;
