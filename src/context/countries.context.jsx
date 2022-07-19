@@ -3,8 +3,7 @@ import { createContext, useEffect ,useState } from "react";
 export const CountriesContext=createContext({
     countries:{},
     isError:false,
-    filterdCountirs:[],
-})
+});
 
 export function CountriesProvider({children}){
     
