@@ -42,17 +42,6 @@ export const ButtonContainer=styled.div`
     ${({dark})=>dark==="dark" && DarkButtonContainerStyles};
 `;
 
-
-export const Warning=styled.h1`
-    position: fixed;
-    width:90%;
-    max-width: 400px;
-    left: 50%;
-    transform: translateX(-50%);
-    top:150px;
-    text-align: center;
-`;
-
 export const BorderButton=styled.button`
     cursor: pointer;
     border:none;
