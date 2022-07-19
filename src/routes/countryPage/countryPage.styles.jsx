@@ -106,12 +106,23 @@ export const Info1=styled.div`
 export const Info2=styled.div`
     margin-left:50px;
     ${InfoStyles};
-`
+`;
 
 const DarkCountryPageStyles=css`
     background:hsl(207, 26%, 17%);
     color: #f5f5f5;
 `;
+
+export const Warning=styled.h1`
+    font-size:2rem;
+    min-width: 275px;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+`;
+
 export const CountryPageContainer=styled.div`
     width:100%;
     height: 100%;

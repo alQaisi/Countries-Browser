@@ -8,7 +8,7 @@ import Loader from '../../components/Loader/loader.component';
 import {
     HomeIcon,BackIcon,HeaderButton,ButtonContainer,
     BorderButton,BorderButtonContainer,
-    CountryCont,Info1,Info2,
+    CountryCont,Info1,Info2,Warning,
     CountryPageContainer
 } from './countryPage.styles';
 
@@ -17,17 +17,18 @@ function CountryPage(){
     const navigate=useNavigate();
 
     const {theme}=useContext(ThemeContext);
+    const {countries,isError}=useContext(CountriesContext);
     const {countryCode}=useParams();
     const [country,setCountry]=useState({});
     const [borders,setBorders]=useState([]);
-    const {countries}=useContext(CountriesContext);
+    
 
     useEffect(()=>{
         setCountry([]);
         const country=countries[countryCode.toUpperCase()]
-        if(!country)
+        if(!alpa3codes[countryCode.toUpperCase()])
             navigate("/");
-        setTimeout(() => {
+        country && setTimeout(() => {
             document.title=country?country.name:"Countries Browser";
             setCountry(country);
         },350);
@@ -52,7 +53,9 @@ function CountryPage(){
     return(
         <CountryPageContainer dark={theme}>
             {
-            country.name
+            isError?
+            <Warning>Pleas Try Again Later!</Warning>
+            :country.name
             ?(<Fragment>
                 <ButtonContainer dark={theme} onClick={()=>navigate(-1)}>
                     <BackIcon/>

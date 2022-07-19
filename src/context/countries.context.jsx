@@ -14,6 +14,7 @@ export function CountriesProvider({children}){
         const abortController=new AbortController();
         const fetchData=async()=>{
             try{
+                setIsError(false);
                 const response=await fetch("https://restcountries.com/v2/all");
                 const data=await response.json();
                 const countriesData={};
@@ -30,7 +31,6 @@ export function CountriesProvider({children}){
             abortController.abort();
         }
     },[]);
-    
     const value={countries,isError};
     return(
         <CountriesContext.Provider value={value}>{children}</CountriesContext.Provider>
