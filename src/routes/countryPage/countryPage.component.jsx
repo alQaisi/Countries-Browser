@@ -24,11 +24,12 @@ function CountryPage(){
 
     useEffect(()=>{
         setCountry([]);
-        if(!countries[countryCode.toUpperCase()]){
-        navigate("/");
-        }
+        const country=countries[countryCode.toUpperCase()]
+        if(!country)
+            navigate("/");
         setTimeout(() => {
-            setCountry(countries[countryCode.toUpperCase()]);
+            document.title=country?country.name:"Countries Browser";
+            setCountry(country);
         },350);
     },[countryCode,countries,navigate]);
 
