@@ -27,7 +27,7 @@ function CountryPage(){
         setCountry([]);
         const country=countries[countryCode.toUpperCase()]
         if(!alpa3codes[countryCode.toUpperCase()])
-            navigate("/");
+            navigate("/pages/404");
         country && setTimeout(() => {
             document.title=country?country.name:"Countries Browser";
             setCountry(country);
