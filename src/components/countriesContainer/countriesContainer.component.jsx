@@ -17,6 +17,6 @@ function CountriesContainer(){
         return <CountriesContainerElem isError={isError}><Warning>Pleas Try Again Later!</Warning></CountriesContainerElem>;
     if(!items.length>0)
         return <Loader/>;
-    return <CountriesContainerElem isError={isError}> { items } </CountriesContainerElem>;
+    return <CountriesContainerElem> { items } </CountriesContainerElem>;
 }
 export default CountriesContainer;
