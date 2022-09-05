@@ -3,6 +3,7 @@ import styled,{css} from "styled-components";
 const isErrorStyles=css`
     display: grid;
     place-items: center;
+    padding-top:75px;
 `;
 
 export const CountriesContainerElem=styled.div`

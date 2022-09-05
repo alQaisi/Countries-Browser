@@ -1,4 +1,4 @@
-import { useContext,useState,useEffect,Fragment } from 'react';
+import { useContext, useState, useEffect } from 'react';
 import { useParams,useNavigate } from 'react-router';
 import { Link } from 'react-router-dom';
 import { ThemeContext } from '../../context/theme.context';
@@ -49,62 +49,43 @@ function CountryPage(){
             <Link key={index} to={"/"+border.alpa3code}><BorderButton>{border.name}</BorderButton></Link>
         )
     });
-        
+    if(isError)
+        return <CountryPageContainer dark={theme}><Warning>Pleas Try Again Later!</Warning></CountryPageContainer>;
+    if(!country?.name)
+        return <CountryPageContainer dark={theme}><Loader className="loader"/></CountryPageContainer>;
     return(
         <CountryPageContainer dark={theme}>
-            {
-            isError?
-            <Warning>Pleas Try Again Later!</Warning>
-            :country.name
-            ?(<Fragment>
-                <ButtonContainer dark={theme} onClick={()=>navigate(-1)}>
-                    <BackIcon/>
-                    <HeaderButton>Back</HeaderButton>
-                </ButtonContainer>
-                <ButtonContainer dark={theme} onClick={()=>navigate("/")}>
-                    <HomeIcon/>
-                    <HeaderButton>Home</HeaderButton>
-                </ButtonContainer>
-                <CountryCont>
-                    <div className="flag">
-                        <img alt={country.name} src={country.flag} />
+            <ButtonContainer dark={theme} onClick={()=>navigate(-1)}>
+                <BackIcon/>
+                <HeaderButton>Back</HeaderButton>
+            </ButtonContainer>
+            <ButtonContainer dark={theme} onClick={()=>navigate("/")}>
+                <HomeIcon/>
+                <HeaderButton>Home</HeaderButton>
+            </ButtonContainer>
+            <CountryCont>
+                <div className="flag">
+                    <img alt={country.name} src={country.flag} />
+                </div>
+                <div className="CountryInfo">
+                    <h1>{country.name}</h1>
+                    <div className="infoCont">
+                        <Info1>
+                            <p>Native Name: <span>{country.nativeName}</span></p>
+                            <p>Population: <span>{country.population}</span></p>
+                            <p>Region: <span>{country.region}</span></p>
+                            <p>Subregion: <span>{country.subregion}</span></p>
+                            <p>Capital: <span>{country.capital}</span></p>
+                        </Info1>
+                        <Info2>
+                            <p>Top Level Domain: <span>{country.topLevelDomain}</span></p>
+                            { country.currencies && <p>Currencies: <span>{country.currencies.map(currency=>currency.name+",")}</span></p> }
+                            { country.languages && <p>Languages: <span>{country.languages.map(language=>language.name+",")}</span></p> }
+                        </Info2>
                     </div>
-                    <div className="CountryInfo">
-                        <h1>{country.name}</h1>
-                        <div className="infoCont">
-                            <Info1>
-                                <p>Native Name: <span>{country.nativeName}</span></p>
-                                <p>Population: <span>{country.population}</span></p>
-                                <p>Region: <span>{country.region}</span></p>
-                                <p>Subregion: <span>{country.subregion}</span></p>
-                                <p>Capital: <span>{country.capital}</span></p>
-                            </Info1>
-                            <Info2>
-                                <p>Top Level Domain: <span>{country.topLevelDomain}</span></p>
-                                {
-                                    country.currencies!==undefined?
-                                    (<p>Currencies: <span>{country.currencies.map(currency=>currency.name+",")}</span></p>)
-                                    :<></>
-                                }
-                                {
-                                    country.languages!==undefined?
-                                    (<p>Languages: <span>{country.languages.map(language=>language.name+",")}</span></p>)
-                                    :<></>
-                                }
-                            </Info2>
-                        </div>
-                        {
-                            buttons.length>1?
-                            (<BorderButtonContainer dark={theme}>
-                                {buttons}
-                            </BorderButtonContainer>)
-                            :<></>  
-                        }
-                    </div>
-                </CountryCont>
-            </Fragment>)
-            :<Loader className="loader"/>
-            }
+                        { buttons.length>1 && <BorderButtonContainer dark={theme}>{buttons}</BorderButtonContainer> }
+                </div>
+            </CountryCont>
         </CountryPageContainer>
     );
 }
