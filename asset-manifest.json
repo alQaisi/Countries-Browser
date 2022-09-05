@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/Countries-Browser/static/css/main.11b000eb.css",
-    "main.js": "/Countries-Browser/static/js/main.7936d133.js",
+    "main.js": "/Countries-Browser/static/js/main.1ff3a9f0.js",
     "service-worker.js": "/Countries-Browser/service-worker.js",
     "static/media/404dark.svg": "/Countries-Browser/static/media/404dark.4d69be4b7c4684fcb05fd76709a1918f.svg",
     "static/media/404normal.svg": "/Countries-Browser/static/media/404normal.c2d0a5a1287326be26534e38b87154da.svg",
@@ -9,10 +9,10 @@
     "static/media/darkLoader.svg": "/Countries-Browser/static/media/darkLoader.86cdc5b02b7af619da69b2447e849427.svg",
     "static/media/lightLoader.svg": "/Countries-Browser/static/media/lightLoader.92d018c8ea677c9219329f589cb9f483.svg",
     "main.11b000eb.css.map": "/Countries-Browser/static/css/main.11b000eb.css.map",
-    "main.7936d133.js.map": "/Countries-Browser/static/js/main.7936d133.js.map"
+    "main.1ff3a9f0.js.map": "/Countries-Browser/static/js/main.1ff3a9f0.js.map"
   },
   "entrypoints": [
     "static/css/main.11b000eb.css",
-    "static/js/main.7936d133.js"
+    "static/js/main.1ff3a9f0.js"
   ]
 }
